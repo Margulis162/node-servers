@@ -7,13 +7,19 @@ const app = express();
 
 
 // other stuff
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
     res.send("welcome to express.js server");
 })
 
 
 app.get("/about", (req, res) => {
-    res.send("<h1>this is ABOUT tub, !not about TUB");
+    // res.send("<h1>this is ABOUT tub, !not about TUB");
+    res.render("index", { 
+        title: "This text is totally rendered",
+        value: Math.random(),
+    });
 })
 
 // to serve static files
